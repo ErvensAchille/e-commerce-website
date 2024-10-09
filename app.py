@@ -6,9 +6,14 @@ app = Flask(__name__)
 
 def home():
     return render_template('index.html')
+
+
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 # Importing Flask and render_template:
 # Flask: This is the main class you will use to create your web application.
