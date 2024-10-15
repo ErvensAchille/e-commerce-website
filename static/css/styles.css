@@ -1,15 +1,22 @@
-/* General Body Styles */
-body {
-    font-family: Arial, sans-serif;
+/* General Body and Page Styles */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
+/* General Text Styles */
+h1, h2, h3, p {
     margin: 0;
     padding: 10px 0;
+}
+
+h1, h2, h3 {
     color: #333;
 }
 
@@ -29,10 +36,11 @@ header {
     text-align: center;
 }
 
-/* Navigation Styles */
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -44,9 +52,10 @@ nav ul li a {
     color: #ffffff;
 }
 
-/* Main Section */
+/* Main Content Area */
 main {
     padding: 20px;
+    flex: 1; /* Makes the main section take up available space */
 }
 
 /* Button Styles */
@@ -82,7 +91,6 @@ main {
 
 .hero-text h1 {
     font-size: 48px;
-    margin-bottom: 20px;
 }
 
 .hero-text p {
@@ -96,7 +104,7 @@ main {
     border-radius: 10px;
 }
 
-/* Featured Products Section */
+/* Featured Products */
 .featured-products {
     text-align: center;
     padding: 50px 20px;
@@ -112,10 +120,10 @@ main {
 .product-card {
     width: 30%;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     margin: 10px;
     background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -141,29 +149,23 @@ main {
     background-color: #e9ecef;
 }
 
-.newsletter input {
+.newsletter input, .newsletter button {
     padding: 10px;
     font-size: 16px;
-    width: 250px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+.newsletter input {
+    width: 250px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
 .newsletter button {
-    padding: 10px 20px;
-    font-size: 16px;
+    border: none;
 }
 
-/* Footer */
-footer {
-    background: #35424a;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Carousel Container */
+/* Carousel */
 .carousel-container {
     position: relative;
     width: 80%;
@@ -171,7 +173,6 @@ footer {
     overflow: hidden;
 }
 
-/* Carousel Items */
 .carousel {
     display: flex;
     transition: transform 0.5s ease;
@@ -180,8 +181,8 @@ footer {
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
-    text-align: center;
     padding: 20px;
+    text-align: center;
 }
 
 .carousel-item img {
@@ -189,7 +190,7 @@ footer {
     border-radius: 10px;
 }
 
-/* Carousel Navigation Buttons */
+/* Carousel Navigation */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -212,4 +213,13 @@ footer {
 
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Footer */
+footer {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
 }

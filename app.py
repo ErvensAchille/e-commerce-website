@@ -1,19 +1,32 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Needed to use session
+
+# Sample products
+products = [
+    {"id": 1, "name": "Product 1", "price": 10},
+    {"id": 2, "name": "Product 2", "price": 15},
+    {"id": 3, "name": "Product 3", "price": 20}
+]
 
 @app.route('/')
-
 def home():
-    return render_template('index.html')
-
+    return render_template('index.html', products=products)
 
 @app.route('/products')
-def products():
-    return render_template('products.html')
+def products_page():
+    return render_template('products.html', products=products)
+
+@app.route('/cart')
+def cart():
+    cart_items = session.get('cart', [])
+    total = sum(item['price'] for item in cart_items)
+    return render_template('cart.html', cart_items=cart_items, total=total)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 # Importing Flask and render_template:
 # Flask: This is the main class you will use to create your web application.
